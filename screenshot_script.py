@@ -29,7 +29,7 @@ class ScreenshotApp:
         self.count_label = tk.Label(root, text=f"Скриншотов сделано: {self.screenshot_count}", font=("Arial", 10))
         self.count_label.pack(pady=10)
 
-        self.info_label = tk.Label(root, text="Caps Lock: отправить email и сделать скриншот\nF12: простой скриншот", font=("Arial", 10))
+        self.info_label = tk.Label(root, text="'z': отправить email и сделать скриншот\nF12: простой скриншот", font=("Arial", 10))
         self.info_label.pack(pady=10)
 
         self.setup_hotkey()
@@ -41,7 +41,7 @@ class ScreenshotApp:
     def listen_for_hotkey(self):
         # Горячие клавиши теперь безопасно планируют работу в основном потоке
         keyboard.add_hotkey('f12', self.schedule_screenshot_with_number, suppress=True)
-        keyboard.add_hotkey('z', self.schedule_outlook_flow, suppress=True)
+        keyboard.add_hotkey('Z', self.schedule_outlook_flow, suppress=True)
         keyboard.wait()
 
     def schedule_outlook_flow(self):
